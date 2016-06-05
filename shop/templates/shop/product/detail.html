@@ -1,0 +1,231 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+
+{% block content %}
+
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+
+					<!-- Shop
+					============================================= -->
+					<div id="shop" class="clearfix">
+
+						<div class="product clearfix">
+							<div class="product-image">
+								<a href="#"><img src="{% static 'main/img/productos/1.jpg'%}" alt="Checked Short Dress"></a>
+								<div class="sale-flash">50% Descuento</div>
+								<div class="product-overlay">
+									<a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
+									<a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Quick View</span></a>
+								</div>
+							</div>
+							<div class="product-desc">
+								<div class="product-title"><h3><a href="#">Muñeco de Pez Bordado</a></h3></div>
+								<div class="product-price"><del>$350.00</del> <ins>$300.00</ins></div>
+								<div class="product-rating">
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star-half-full"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="product clearfix">
+							<div class="product-image">
+								<a href="#"><img src="{% static 'main/img/productos/2.jpg'%}" alt="Slim Fit Chinos"></a>
+								<div class="product-overlay">
+									<a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Añadir al carrito</span></a>
+									<a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Vista Rapida</span></a>
+								</div>
+							</div>
+							<div class="product-desc">
+								<div class="product-title"><h3><a href="#">Estatua de Buho Bordado</a></h3></div>
+								<div class="product-price">$500.00</div>
+								<div class="product-rating">
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star-half-full"></i>
+									<i class="icon-star-empty"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="product clearfix">
+							<div class="product-image">
+								<div class="fslider" data-arrows="false">
+									<div class="flexslider">
+										<div class="slider-wrap">
+											<div class="slide"><a href="#"><img src="{% static 'main/img/productos/3.jpg'%}" alt="Dark Brown Boots"></a></div>
+										</div>
+									</div>
+								</div>
+								<div class="product-overlay">
+									<a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Añade al carrito</span></a>
+									<a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Vista Rapida</span></a>
+								</div>
+							</div>
+							<div class="product-desc">
+								<div class="product-title"><h3><a href="#">Estatua de Iguana Bordada</a></h3></div>
+								<div class="product-price">$400.00</div>
+								<div class="product-rating">
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star-empty"></i>
+									<i class="icon-star-empty"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="product clearfix">
+							<div class="product-image">
+								<a href="#"><img src="{% static 'main/img/productos/8.jpg'%}" alt="Light Blue Denim Dress"></a>
+								<div class="product-overlay">
+									<a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Añadir al carrito</span></a>
+									<a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Vista Rapida</span></a>
+								</div>
+							</div>
+							<div class="product-desc">
+								<div class="product-title"><h3><a href="#">Tapete Redondo Huichol</a></h3></div>
+								<div class="product-price">$900.00</div>
+								<div class="product-rating">
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star-empty"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="product clearfix">
+							<div class="product-image">
+								<a href="#"><img src="{% static 'main/img/productos/4.jpg'%}" alt="Unisex Sunglasses"></a>
+								<div class="sale-flash">Oferta!</div>
+								<div class="product-overlay">
+									<a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Añadir al carrito</span></a>
+									<a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Vista Rapida</span></a>
+								</div>
+							</div>
+							<div class="product-desc">
+								<div class="product-title"><h3><a href="#">Estatua de Bocho</a></h3></div>
+								<div class="product-price"><del>$19.99</del> <ins>$500.00</ins></div>
+								<div class="product-rating">
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star-empty"></i>
+									<i class="icon-star-empty"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="product clearfix">
+							<div class="product-image">
+								<a href="#"><img src="{% static 'main/img/productos/5.jpg'%}" alt="Blue Round-Neck Tshirt"></a>
+								<div class="product-overlay">
+									<a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Añadir al carrito</span></a>
+									<a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Vista Previa</span></a>
+								</div>
+							</div>
+							<div class="product-desc">
+								<div class="product-title"><h3><a href="#">Estatua delfin</a></h3></div>
+								<div class="product-price">$350</div>
+								<div class="product-rating">
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star-half-full"></i>
+									<i class="icon-star-empty"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="product clearfix">
+							<div class="product-image">
+								<a href="#"><img src="{% static 'main/img/productos/6.jpg'%}" alt="Silver Chrome Watch"></a>
+								<div class="product-overlay">
+									<a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Añadir al carrito</span></a>
+									<a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Vista Previa</span></a>
+								</div>
+							</div>
+							<div class="product-desc">
+								<div class="product-title"><h3><a href="#">Craneo res bordado</a></h3></div>
+								<div class="product-price">$1200.00</div>
+								<div class="product-rating">
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star-half-full"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="product clearfix">
+							<div class="product-image">
+								<a href="#"><img src="{% static 'main/img/productos/7.jpg'%}" alt="Men Grey Casual Shoes"></a>
+								<div class="product-overlay">
+									<a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Añadir al carrito</span></a>
+									<a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Vista Rapida</span></a>
+								</div>
+							</div>
+							<div class="product-desc">
+								<div class="product-title"><h3><a href="#">Estatua aguila bordada</a></h3></div>
+								<div class="product-price"><del>$900.00</del> <ins>$750.00</ins></div>
+								<div class="product-rating">
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star-half-full"></i>
+									<i class="icon-star-empty"></i>
+									<i class="icon-star-empty"></i>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="product clearfix">
+							<div class="product-image">
+								<a href="#"><img src="{% static 'main/img/productos/0.jpg'%}" alt="Green Trousers"></a>
+								<div class="product-overlay">
+									<a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Añadir al carrito</span></a>
+									<a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Vista Rapida</span></a>
+								</div>
+							</div>
+							<div class="product-desc">
+								<div class="product-title"><h3><a href="#">Tapete Bordado Cuadraro</a></h3></div>
+								<div class="product-price"><del>$1000.00</del> <ins>$800.00</ins></div>
+								<div class="product-rating">
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star3"></i>
+									<i class="icon-star-half-full"></i>
+									<i class="icon-star-empty"></i>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div><!-- #shop end -->
+
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+	</div><!-- #wrapper end -->
+
+
+{% endblock content %}

@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+
+{% block content %}
+	<!-- Document Wrapper
+	============================================= -->
+		<section id="slider" class="slider-parallax swiper_wrapper full-screen clearfix">
+
+			<div class="swiper-container swiper-parent">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide dark" style="background-image: url({% static 'main/img/fondoLan.jpg'%})" >
+						<div class="container clearfix">
+							<div class="slider-caption slider-caption-center">
+								<img src="{% static 'main/img/logotipo.png' %}">
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide dark">
+						<div class="container clearfix">
+							<div class="slider-caption slider-caption-center">
+								<h2 data-caption-animate="fadeInUp">100% Artesanal</h2>
+								<p data-caption-animate="fadeInUp" data-caption-delay="200">Ofrecemos los Mejores productos de nivel Nacional , hechos por lo mejores artesanos de la region.</p>
+							</div>
+						</div>
+						<div class="video-wrap">
+							<video id="slide-video" poster="{% static 'main/images/videos/explore.jpg'%}" preload="auto" loop autoplay muted>
+								<source src='{% static 'main/images/videos/explore.webm'%}' type='video/webm' />
+								<source src='{% static 'main/images/videos/explore.mp4'%}' type='video/mp4' />
+							</video>
+							<div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
+						</div>
+					</div>
+				</div>
+				<div id="slider-arrow-left"><i class="icon-angle-left"></i></div>
+				<div id="slider-arrow-right"><i class="icon-angle-right"></i></div>
+			</div>
+
+
+			<script>
+				jQuery(document).ready(function($){
+					var swiperSlider = new Swiper('.swiper-parent',{
+						paginationClickable: false,
+						slidesPerView: 1,
+						grabCursor: true,
+						loop: true,
+						onSwiperCreated: function(swiper){
+							$('[data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var toAnimateDelay = $(this).attr('data-caption-delay');
+								var toAnimateDelayTime = 0;
+								if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 750; } else { toAnimateDelayTime = 750; }
+								if( !$toAnimateElement.hasClass('animated') ) {
+									$toAnimateElement.addClass('not-animated');
+									var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+									setTimeout(function() {
+										$toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+									}, toAnimateDelayTime);
+								}
+							});
+							SEMICOLON.slider.swiperSliderMenu();
+						},
+						onSlideChangeStart: function(swiper){
+							$('[data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+								$toAnimateElement.removeClass('animated').removeClass(elementAnimation).addClass('not-animated');
+							});
+							SEMICOLON.slider.swiperSliderMenu();
+						},
+						onSlideChangeEnd: function(swiper){
+							$('#slider').find('.swiper-slide').each(function(){
+								if($(this).find('video').length > 0) { $(this).find('video').get(0).pause(); }
+								if($(this).find('.yt-bg-player').length > 0) { $(this).find('.yt-bg-player').pauseYTP(); }
+							});
+							$('#slider').find('.swiper-slide:not(".swiper-slide-active")').each(function(){
+								if($(this).find('video').length > 0) {
+									if($(this).find('video').get(0).currentTime != 0 ) $(this).find('video').get(0).currentTime = 0;
+								}
+								if($(this).find('.yt-bg-player').length > 0) {
+									$(this).find('.yt-bg-player').getPlayer().seekTo( $(this).find('.yt-bg-player').attr('data-start') );
+								}
+							});
+							if( $('#slider').find('.swiper-slide.swiper-slide-active').find('video').length > 0 ) { $('#slider').find('.swiper-slide.swiper-slide-active').find('video').get(0).play(); }
+							if( $('#slider').find('.swiper-slide.swiper-slide-active').find('.yt-bg-player').length > 0 ) { $('#slider').find('.swiper-slide.swiper-slide-active').find('.yt-bg-player').playYTP(); }
+
+							$('#slider .swiper-slide.swiper-slide-active [data-caption-animate]').each(function(){
+								var $toAnimateElement = $(this);
+								var toAnimateDelay = $(this).attr('data-caption-delay');
+								var toAnimateDelayTime = 0;
+								if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 300; } else { toAnimateDelayTime = 300; }
+								if( !$toAnimateElement.hasClass('animated') ) {
+									$toAnimateElement.addClass('not-animated');
+									var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+									setTimeout(function() {
+										$toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+									}, toAnimateDelayTime);
+								}
+							});
+						}
+					});
+
+					$('#slider-arrow-left').on('click', function(e){
+						e.preventDefault();
+						swiperSlider.swipePrev();
+					});
+
+					$('#slider-arrow-right').on('click', function(e){
+						e.preventDefault();
+						swiperSlider.swipeNext();
+					});
+				});
+			</script>
+
+			<a href="#" data-scrollto="#content" data-offset="100" class="dark one-page-arrow"><i class="icon-angle-down infinite animated fadeInDown"></i></a>
+
+		</section>
+
+<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+					<div class="row clearfix">
+
+						<div class="col-lg-5">
+							<div class="heading-block topmargin">
+								<h2>Bienvenido a MiArtesano.com</h2>
+							</div>
+							<p class="lead">Descubre la cultura de los estados de la republica Mexicana a travez de lo que crean las comunidades nativas de estos lugares.</p>
+						</div>
+
+						<div class="col-lg-7">
+
+							<div style="position: relative; margin-bottom: -60px;" class="ohidden" data-height-lg="426" data-height-md="567" data-height-sm="470" data-height-xs="287" data-height-xxs="183">
+								<img src="{% static 'main/img/gato.jpg' %}" style="position: absolute; top: 0; left: 0; width: 561px; margin-left: 111px; margin-top: -40px;" data-animate="fadeInUp" data-delay="100" alt="Chrome">
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+				<div class="section nobottommargin">
+					<div class="container clear-bottommargin clearfix">
+
+						<div class="row topmargin-sm clearfix">
+
+							<div class="col-md-4 bottommargin">
+
+								<div class="heading-block nobottomborder" style="margin-bottom: 15px;">
+									<h4>Comodo</h4>
+									<span class="before-heading">No se necesita de un gran esfuerzo.</span>
+								</div>
+								<p>Con una facil y rapida compra podras tener grandes obras de arte en la puerta y comodidad de tu hogar</p>
+							</div>
+
+							<div class="col-md-4 bottommargin">
+								<div class="heading-block nobottomborder" style="margin-bottom: 15px;">
+									<h4>Productos Unicos</h4>
+									<span class="before-heading">Son diferentes y espeiales</span>
+								</div>
+								<p>Como no estan hecho en produccion masiva estos productos son unicos y cada uno es diferente.</p>
+							</div>
+
+							<div class="col-md-4 bottommargin">
+								<div class="heading-block nobottomborder" style="margin-bottom: 15px;">
+									<h4>Apoyas la industria nacional</h4>
+									<span class="before-heading">La artesania Mexicana es especial</span>
+								</div>
+								<p>Debido a la globalizacion se han olvidado cosas hermosas como lo son las artesanias, volvamos a las raices!</p>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+				<div class="container clearfix">
+
+					<div class="row topmargin-lg bottommargin-sm">
+
+						<div class="heading-block center">
+							<h2>Mas que un simple Ecommerce</h2>
+							<span class="divcenter">Ademas de ser un place market en linea , apoyamos con trabajo adoptando una comunidad y siendo tu el intermediario entre la plataforma y los artesanos, tu eres quien sube los productos de esta comunidad y se organiza con esta para hacer crecer tu negocio y su trabajo.</span>
+						</div>
+
+						<div class="col-md-4 col-sm-6 bottommargin">
+
+							<div class="feature-box fbox-right topmargin" data-animate="fadeIn">
+								<h3>Ayuda a una Comunidad</h3>
+								<p>Ayuda a que las personas puedan generar mas ingresos y su arte sea reconocida</p>
+							</div>
+
+							<div class="feature-box fbox-right topmargin" data-animate="fadeIn" data-delay="200">
+								<h3>Emprende</h3>
+								<p>Crea tu comunidad de artesanos de cierta region y genera tu pequeña PyME</p>
+							</div>
+
+							<div class="feature-box fbox-right topmargin" data-animate="fadeIn" data-delay="400">
+								<h3>Genera Ingresos</h3>
+								<p>Gana dinero siendo la persona facilitadora de nuestra plataforma para que los artesanos vendan</p>
+							</div>
+
+						</div>
+
+						<div class="col-md-4 hidden-sm bottommargin center">
+							<img src="{% static 'main/img/productos/8.jpg'%}" alt="iphone 2">
+						</div>
+
+						<div class="col-md-4 col-sm-6 bottommargin">
+
+							<div class="feature-box topmargin" data-animate="fadeIn">
+								<h3>Has crecer la plataforma</h3>
+								<p>Haz que la plataforma crezca y genera mas ganancias</p>
+							</div>
+
+							<div class="feature-box topmargin" data-animate="fadeIn" data-delay="200">
+								<h3>Dales Mejor condiciones de vida</h3>
+								<p>Ayuda a erradicar la pobreza en las ragiones de artesanos.</p>
+							</div>
+
+							<div class="feature-box topmargin" data-animate="fadeIn" data-delay="400">
+								<h3>Ayuda a la industria Nacional</h3>
+								<p>Busca poner el Nombre de los productos mexicanos en alto</p>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+
+				<div style="height: 165px; "class="row clearfix bottommargin-lg common-height">
+
+					<div class="col-md-6 col-sm-6 dark center col-padding" style="background-color: #515875;">
+						<div>
+							<i class="i-plain i-xlarge divcenter icon-line2-directions"></i>
+							<div class="counter counter-lined"><span data-from="100" data-to="1800000" data-refresh-interval="50" data-speed="3500"></span></div>
+							<h5>De artesanos en Mexico</h5>
+						</div>
+					</div>
+
+					<div class="col-md-6 col-sm-6 dark center col-padding" style="background-color: #576F9E;">
+						<div>
+							<i class="i-plain i-xlarge divcenter icon-line2-graph"></i>
+							<div class="counter counter-lined"><span data-from="3000" data-to="8000000" data-refresh-interval="100" data-speed="3500"></span></div>
+							<h5>De personas beneficiadas</h5>
+						</div>
+					</div>
+
+				</div>
+
+
+
+	</div>
+{% endblock content %}
