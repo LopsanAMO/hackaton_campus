@@ -66,12 +66,29 @@
 								<a href="{%url 'home:homeView' %}"><div>Home</div></a>
 							</li>
 							<li class="mega-menu"><a href="{%url 'shop:productos' %}"><div>Productos</div></a>
-</li>
-							<li class="mega-menu"><a href="login-register.html"><div>Login</div></a>
-								<div class="mega-menu-content col-5 clearfix">
 
-								</div>
-							</li>
+</li>
+<li class="mega-menu"><a href="{%url 'shop:box' %}"><div>ArtesanalBoox</div></a></li>
+<li class="mega-menu"><a href="{% url 'login:registrar' %}"><div>Adopta</div></a>
+							{% if user.is_authenticated %}
+								<li class="mega-menu"><a href="{% url 'login:login' %}"><div>{{ user.username }}</div></a>
+									<div class="mega-menu-content col-5 clearfix">
+
+									</div>
+								</li>
+								<li class="mega-menu"><a href="{% url 'login:logout' %}"><div>Logout</div></a>
+									<div class="mega-menu-content col-5 clearfix">
+
+									</div>
+								</li>
+							{% else %}
+								<li class="mega-menu"><a href="{% url 'login:login' %}"><div>Login</div></a>
+									<div class="mega-menu-content col-5 clearfix">
+
+									</div>
+								</li>
+							{% endif %}
+
 						</ul>
 
 						<!-- Top Cart

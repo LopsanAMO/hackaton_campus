@@ -9,7 +9,5 @@ urlpatterns = [
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^shop/', include('shop.urls', namespace='shop')),
     url(r'^orders/', include('orders.urls', namespace='orders')),
-]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+    url(r'^login/', include('login.urls', namespace='login'))
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

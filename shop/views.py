@@ -24,3 +24,8 @@ def product_detail(request, id, slug):
     template_name = 'shop/product/detail.html'
     ctx = {'product': product, 'cart_product_form': cart_product_form}
     return render(request, template_name, ctx)
+
+class artesalanView(TemplateView):
+    def get(self, request):
+        template_name = 'shop/product/pricing.html'
+        return render(request, template_name)
